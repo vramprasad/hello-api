@@ -16,5 +16,15 @@ stages:
 
   - stage: Build
     jobs:
-      - job: "Build Code"
+      - job: "Build"
         steps:
+        - task: Maven@3
+          inputs:
+            mavenPomFile: 'pom.xml'
+            mavenOptions: '-Xmx3072m'
+            javaHomeOption: 'JDKVersion'
+            jdkVersionOption: '1.11'
+            jdkArchitectureOption: 'x64'
+            publishJUnitResults: true
+            testResultsFiles: '**/TEST-*.xml'
+            goals: 'clean package -Dmaven.test.skip=true'
