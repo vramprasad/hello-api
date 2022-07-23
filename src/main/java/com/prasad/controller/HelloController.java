@@ -11,7 +11,7 @@ import java.util.Date;
 @RestController
 public class HelloController {
 
-    @GetMapping
+    @GetMapping("/healthcheck")
     public ResponseEntity<String> healthcheck() {
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         String responseText = "hello-api Healthcheck @ "+ timeStamp+" - All OK";
