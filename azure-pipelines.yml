@@ -1,0 +1,20 @@
+trigger:
+  - main
+
+pool:
+  name: RPLocalPool
+  demands:
+    - agent.name -equals RPLocalMac
+
+stages:
+  - stage: Check JAVA
+    jobs:
+      - job: "PrintVersion"
+        steps:
+          - script: java --version
+        displayName: Print JAVA version
+
+  - stage: Build
+    jobs:
+      - job: "Build Code"
+        steps:
