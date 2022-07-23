@@ -7,7 +7,7 @@ pool:
     - agent.name -equals RPLocalMac
 
 stages:
-  - stage: Check JAVA
+  - stage: CheckJAVA
     jobs:
       - job: "PrintVersion"
         steps:
