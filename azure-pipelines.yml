@@ -28,3 +28,4 @@ stages:
             publishJUnitResults: true
             testResultsFiles: '**/TEST-*.xml'
             goals: 'clean package -Dmaven.test.skip=true'
+        - script: echo $(Build.ArtifactStagingDirectory)
