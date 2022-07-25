@@ -28,4 +28,9 @@ stages:
             publishJUnitResults: true
             testResultsFiles: '**/TEST-*.xml'
             goals: 'clean package -Dmaven.test.skip=true'
-        - script: echo $(Build.ArtifactStagingDirectory)
+          displayName: Maven Build         
+        - task: PublishBuildArtifacts@1
+          inputs:
+            pathToPublish: '$(Build.ArtifactStagingDirectory)'
+            artifactName: drop
+          displayName: Publishing the Artifact
